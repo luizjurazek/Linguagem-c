@@ -42,7 +42,7 @@ int cadastrarprojeto(){
     gets(projeto[codigototal+1].descricao);
 
     codigototal = codigototal + 1;
-    /*
+
     printf("Deseja cadastrar outro projeto: 1 - SIM | 2 - NAO \n");
     fflush(stdin);
     scanf("%d", &cadnovamente);
@@ -52,7 +52,7 @@ int cadastrarprojeto(){
     printf("Retornando ao menu../");
     }
     system("pause");
-    return 0; */
+    return 0;
 }     
 
 // listar todos projetos
