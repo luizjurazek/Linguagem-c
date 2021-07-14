@@ -25,6 +25,7 @@ int escolha, codigototal;
 // cadastrar projeto
 int cadastrarprojeto(){     
     int cadnovamente;
+    system("cls");
     printf("-----------------------------------------------------\n");
     printf("                  Cadastrar projeto: \n");
     projeto[codigototal+1].codigo = codigototal + 1;
@@ -66,12 +67,13 @@ int cadastrarprojeto(){
     
     case 2:
         printf("Retornando ao menu");
+        system("cls");
         break;
 
     case 3: 
         system("cls");
         printf("-----------------------------------------------------\n");
-        printf("    Último projeto cadastrado\n");
+        printf("    	último projeto cadastrado\n");
         printf("Código: %d\n", projeto[codigototal].codigo);
         printf("Título: %s\n", projeto[codigototal].titulo);
         printf("Gerente: %s\n", projeto[codigototal].gerente);
@@ -91,7 +93,7 @@ void buscacodigo(){
     int codigobusca, j, i, exibirnovamente, achou;
     system("cls");
     printf("-----------------------------------------------------\n");
-    printf("                       Busca por codigo\n"); 
+    printf("                       Busca por código\n"); 
     printf("Informe o código que deseja: ");
     fflush(stdin);
     scanf("%d", &codigobusca);
@@ -115,7 +117,7 @@ void buscacodigo(){
     }
         if(achou == 0){
             printf("Código %d não foi encontrado!\n", codigobusca);
-            printf("Tente outro código: \n");
+            printf("Tente outro cÃ³digo: \n");
         }
 
     printf("-----------------------------------------------------\n");
@@ -129,6 +131,7 @@ void buscacodigo(){
         break;
     default:
         printf("Retornando ao menu");
+        system("cls");
         break;
     }
 }
@@ -159,7 +162,6 @@ void buscanome(){
             printf("Descrição: %s\n", projeto[j].descricao);
             printf("Valor: R$ %.2f\n", projeto[j].valor);
             achou = 1;
-            
         }
         j++;
     }
@@ -179,6 +181,7 @@ void buscanome(){
     
     default:
         printf("Retornando ao menu");
+        system("cls");
         break;
         }
 }
@@ -228,11 +231,11 @@ void listarstatus(){
         printf("Código: %d\n", projeto[i].codigo);
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
-        printf("Cliente: %s\n", projeto[i].gerente);
+        printf("Cliente: %s\n", projeto[i].cliente);
         printf("status: %d\n", projeto[i].status);
         printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
-        printf("Descrição: %s\n", projeto[i].descricao);
+        printf("Descrção: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
         printf("\n");
             }
@@ -260,7 +263,7 @@ void listarstatus(){
         printf("Código: %d\n", projeto[i].codigo);
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
-        printf("Cliente: %s\n", projeto[i].gerente);
+        printf("Cliente: %s\n", projeto[i].cliente);
         printf("status: %d\n", projeto[i].status);
         printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
@@ -293,7 +296,7 @@ void listarstatus(){
         printf("Código: %d\n", projeto[i].codigo);
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
-        printf("Cliente: %s\n", projeto[i].gerente);
+        printf("Cliente: %s\n", projeto[i].cliente);
         printf("status: %d\n", projeto[i].status);
         printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
