@@ -17,23 +17,22 @@ struct cadastro{
     int ano, codigo, estimativa, status;
 };
 
-
-// Variaveis
 struct cadastro projeto[201];
 
+// Variaveis
 int escolha, codigototal;
 
-	 
 // cadastrar projeto
 int cadastrarprojeto(){     
     int cadnovamente;
     system("cls");
-    if((codigototal >= 1) && (codigototal < 200)){
+    if((codigototal >= 0) && (codigototal < 200)){
+   	
     printf("-----------------------------------------------------\n");
     printf("                  Cadastrar projeto: \n");
     projeto[codigototal+1].codigo = codigototal + 1;
-    printf("O código do projeto é: %d\n", codigototal + 1);
-    printf("Informe o título do projeto: \n");
+    printf("O codigo do projeto: %d\n", codigototal + 1);
+    printf("Informe o titulo do projeto: \n");
     fflush(stdin);
     gets(projeto[codigototal+1].titulo);
     printf("Informe o status do projeto: 1 - A FAZER | 2 - EM ANDAMENTO | 3 - CONCLUIDO\n");
@@ -51,7 +50,7 @@ int cadastrarprojeto(){
     printf("Informe o nome do cliente: \n");
     fflush(stdin);
     gets(projeto[codigototal+1].cliente);
-    printf("Informe a descrição do projeto: \n");
+    printf("Informe a descricao do projeto: \n");
     fflush(stdin);
     gets(projeto[codigototal+1].descricao);
     printf("Informe o valor do projeto: R$");
@@ -65,7 +64,7 @@ int cadastrarprojeto(){
         return 0;
     }
 
-    printf("Deseja cadastrar outro projeto: 1 - SIM | 2 - NÃO | 3 - VISUALIZAR PROJETO \n");
+    printf("Deseja cadastrar outro projeto: 1 - SIM | 2 - NAO | 3 - VISUALIZAR PROJETO \n");
     fflush(stdin);
     scanf(" %d", &cadnovamente);
 
@@ -82,15 +81,15 @@ int cadastrarprojeto(){
     case 3: 
         system("cls");
         printf("-----------------------------------------------------\n");
-        printf("    	último projeto cadastrado\n");
-        printf("Código: %d\n", projeto[codigototal].codigo);
-        printf("Título: %s\n", projeto[codigototal].titulo);
+        printf("    	Ultimo projeto cadastrado\n");
+        printf("Codigo: %d\n", projeto[codigototal].codigo);
+        printf("Titulo: %s\n", projeto[codigototal].titulo);
         printf("Gerente: %s\n", projeto[codigototal].gerente);
         printf("Cliente: %s\n", projeto[codigototal].cliente);
         printf("status: %d\n", projeto[codigototal].status);
         printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[codigototal].ano);
-        printf("Descrição: %s\n", projeto[codigototal].descricao);
+        printf("Descricao: %s\n", projeto[codigototal].descricao);
         printf("Valor: R$ %.2f\n", projeto[codigototal].valor);
         break;
     }
@@ -102,8 +101,8 @@ void buscacodigo(){
     int codigobusca, j, i, exibirnovamente, achou;
     system("cls");
     printf("-----------------------------------------------------\n");
-    printf("                       Busca por código\n"); 
-    printf("Informe o código que deseja: ");
+    printf("                       Busca por codigo\n"); 
+    printf("Informe o codigo que deseja: ");
     fflush(stdin);
     scanf(" %d", &codigobusca);
     achou = 0;
@@ -111,26 +110,26 @@ void buscacodigo(){
 
     while((achou == 0) && (j <= codigototal)){
         if(codigobusca == projeto[j].codigo){
-            printf("Código: %d\n", projeto[j].codigo);
-            printf("Título: %s\n", projeto[j].titulo);
+            printf("Codigo: %d\n", projeto[j].codigo);
+            printf("Titulo: %s\n", projeto[j].titulo);
             printf("Gerente: %s\n", projeto[j].gerente);
             printf("Cliente: %s\n", projeto[j].cliente);
             printf("status: %d\n", projeto[j].status);
             printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
             printf("Ano: %d\n", projeto[j].ano);
-            printf("Descrição: %s\n", projeto[j].descricao);
+            printf("Descricao: %s\n", projeto[j].descricao);
             printf("Valor: R$ %.2f\n", projeto[j].valor);
             achou = 1;
         }
         j++;
     }
         if(achou == 0){
-            printf("Código %d não foi encontrado!\n", codigobusca);
-            printf("Tente outro código: \n");
+            printf("Codigo %d nao foi encontrado!\n", codigobusca);
+            printf("Tente outro codigo: \n");
         }
 
     printf("-----------------------------------------------------\n");
-    printf("Deseja fazer uma nova busca:  1 - SIM | 2 - NÃO\n");
+    printf("Deseja fazer uma nova busca:  1 - SIM | 2 - NAO\n");
     fflush(stdin);
     scanf(" %d", &exibirnovamente);
 
@@ -151,7 +150,7 @@ void buscanome(){
     char nome[30];
     int j, i, exibirnovamente, achou;
     system("cls");
-    printf("Informe o nome do cliente(idêntico ao cadastrado): \n");
+    printf("Informe o nome do cliente(identico ao cadastrado): \n");
     fflush(stdin);
     gets(nome);
 
@@ -162,24 +161,24 @@ void buscanome(){
         if(strcmp(projeto[j].cliente,nome)==0){
             printf("-----------------------------------------------------\n");
             printf("Cliente: %s\n", projeto[j].cliente);
-            printf("Código: %d\n", projeto[j].codigo);
-            printf("Título: %s\n", projeto[j].titulo);
+            printf("Codigo: %d\n", projeto[j].codigo);
+            printf("Titulo: %s\n", projeto[j].titulo);
             printf("Gerente: %s\n", projeto[j].gerente);
             printf("Status: %d\n", projeto[j].status);
             printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
             printf("Ano: %d\n", projeto[j].ano);
-            printf("Descrição: %s\n", projeto[j].descricao);
+            printf("Descricao: %s\n", projeto[j].descricao);
             printf("Valor: R$ %.2f\n", projeto[j].valor);
             achou = 1;
         }
         j++;
     }
     if(achou == 0){
-        printf("Cliente não encontrado!\n", nome);
+        printf("Cliente nao encontrado!\n", nome);
         printf("\n");
     }
     printf("-----------------------------------------------------\n");
-    printf("Deseja fazer uma nova busca: 1 - SIM | 2 - NÃO\n");
+    printf("Deseja fazer uma nova busca: 1 - SIM | 2 - NAO\n");
     fflush(stdin);
     scanf(" %d", &exibirnovamente);
 
@@ -203,14 +202,14 @@ void listarprojetos(){
     printf("Listando todos os projetos...\n");
     printf("-----------------------------------------------------\n");
     for (i = 1; i <= codigototal; i++){
-        printf("Código: %d\n", projeto[i].codigo);
-        printf("Título: %s\n", projeto[i].titulo);
+        printf("Codigo: %d\n", projeto[i].codigo);
+        printf("Titulo: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
         printf("Status: %d\n", projeto[i].status);
         printf("Estimativa: %d meses \n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
-        printf("Descrição: %s\n", projeto[i].descricao);
+        printf("Descricao: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
         printf("-----------------------------------------------------\n");
     }
@@ -238,18 +237,18 @@ void listarstatus(){
         if((projeto[i].status != 2,3) && (projeto[i].status == 1)){
         printf("-----------------------------------------------------\n");
         printf("status: %d - A FAZER\n", projeto[i].status);
-        printf("Código: %d\n", projeto[i].codigo);
-        printf("Título: %s\n", projeto[i].titulo);
+        printf("Codigo: %d\n", projeto[i].codigo);
+        printf("Titulo: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
         printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
-        printf("Descrição: %s\n", projeto[i].descricao);
+        printf("Descricao: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
         printf("\n");
             }
     }
-        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NÃO\n");
+        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NAO\n");
         fflush(stdin);
         scanf(" %d", &statusnovamente);
         switch (statusnovamente){
@@ -270,17 +269,17 @@ void listarstatus(){
         if((projeto[i].status != 1,3) && (projeto[i].status == 2)){
         printf("-----------------------------------------------------\n");
         printf("status: %d - EM ANDAMENTO\n", projeto[i].status);
-        printf("Código: %d\n", projeto[i].codigo);
-        printf("Título: %s\n", projeto[i].titulo);
+        printf("Codigo: %d\n", projeto[i].codigo);
+        printf("Titulo: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
         printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
-        printf("Descrição: %s\n", projeto[i].descricao);
+        printf("Descricao: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
             }
     }
-        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NÃO\n");
+        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NAO\n");
         fflush(stdin);
         scanf(" %d", &statusnovamente);
         switch (statusnovamente){
@@ -303,17 +302,17 @@ void listarstatus(){
         if((projeto[i].status != 1,2) && (projeto[i].status == 3)){
         printf("-----------------------------------------------------\n");
         printf("status: %d - CONCLUIDO\n", projeto[i].status);
-        printf("Código: %d\n", projeto[i].codigo);
-        printf("Título: %s\n", projeto[i].titulo);
+        printf("Codigo: %d\n", projeto[i].codigo);
+        printf("Titulo: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
         printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
-        printf("Descrição: %s\n", projeto[i].descricao);
+        printf("DescriÃ§ao: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
             }
     }
-        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NÃO\n");
+        printf("Deseja visualizar outros projetos: 1 - SIM | 2 - NAO\n");
         fflush(stdin);
         scanf(" %d", &statusnovamente);
         switch (statusnovamente){
@@ -328,28 +327,21 @@ void listarstatus(){
     }    
 }
 
+
+	
  
 // CORPO PROGRAMA 
 int main(void){  
     setlocale(LC_ALL, "Portuguese");
-    codigototal = 1;
-    
-	
-
-	projeto[1].estimativa = 1;
-	projeto[1].cliente = "%s" luiz;
-	
-    	
+    codigototal = 0;
     
     do {
-   	
         printf("\n**********************************************");
         printf("\n          Hub de Projetos - JURAZEK");
         printf("\n**********************************************");
         printf("\n                   MENU\n");
-        
         printf("\n 1 - Cadastrar um novo projeto ");
-        printf("\n 2 - Buscar por código");
+        printf("\n 2 - Buscar por codigo");
         printf("\n 3 - Buscar por nome do cliente");
         printf("\n 4 - Listar projetos cadastrados");
         printf("\n 5 - Listar projetos por status");
