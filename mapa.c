@@ -17,15 +17,18 @@ struct cadastro{
     int ano, codigo, estimativa, status;
 };
 
+
 // Variaveis
-struct cadastro projeto[200];
+struct cadastro projeto[201];
+
 int escolha, codigototal;
 
-
+	 
 // cadastrar projeto
 int cadastrarprojeto(){     
     int cadnovamente;
     system("cls");
+    if((codigototal >= 1) && (codigototal < 200)){
     printf("-----------------------------------------------------\n");
     printf("                  Cadastrar projeto: \n");
     projeto[codigototal+1].codigo = codigototal + 1;
@@ -55,6 +58,12 @@ int cadastrarprojeto(){
     scanf(" %f", &projeto[codigototal+1].valor);
 
     codigototal = codigototal + 1;
+    } else {
+    	printf("-----------------------------------------------------\n");
+        printf("			Limite de cadastros atingido!\n");
+        printf("-----------------------------------------------------\n");
+        return 0;
+    }
 
     printf("Deseja cadastrar outro projeto: 1 - SIM | 2 - NÃO | 3 - VISUALIZAR PROJETO \n");
     fflush(stdin);
@@ -79,7 +88,7 @@ int cadastrarprojeto(){
         printf("Gerente: %s\n", projeto[codigototal].gerente);
         printf("Cliente: %s\n", projeto[codigototal].cliente);
         printf("status: %d\n", projeto[codigototal].status);
-        printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+        printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[codigototal].ano);
         printf("Descrição: %s\n", projeto[codigototal].descricao);
         printf("Valor: R$ %.2f\n", projeto[codigototal].valor);
@@ -107,7 +116,7 @@ void buscacodigo(){
             printf("Gerente: %s\n", projeto[j].gerente);
             printf("Cliente: %s\n", projeto[j].cliente);
             printf("status: %d\n", projeto[j].status);
-            printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+            printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
             printf("Ano: %d\n", projeto[j].ano);
             printf("Descrição: %s\n", projeto[j].descricao);
             printf("Valor: R$ %.2f\n", projeto[j].valor);
@@ -157,9 +166,9 @@ void buscanome(){
             printf("Título: %s\n", projeto[j].titulo);
             printf("Gerente: %s\n", projeto[j].gerente);
             printf("Status: %d\n", projeto[j].status);
-            printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+            printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
             printf("Ano: %d\n", projeto[j].ano);
-            printf("Descriï¿½ï¿½o: %s\n", projeto[j].descricao);
+            printf("Descrição: %s\n", projeto[j].descricao);
             printf("Valor: R$ %.2f\n", projeto[j].valor);
             achou = 1;
         }
@@ -193,13 +202,13 @@ void listarprojetos(){
     system("cls");
     printf("Listando todos os projetos...\n");
     printf("-----------------------------------------------------\n");
-    for (i = 0; i <= codigototal; i++){
+    for (i = 1; i <= codigototal; i++){
         printf("Código: %d\n", projeto[i].codigo);
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
         printf("Status: %d\n", projeto[i].status);
-        printf("Estimativa do prazo: %d meses \n", projeto[codigototal].estimativa);
+        printf("Estimativa: %d meses \n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
         printf("Descrição: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
@@ -233,7 +242,7 @@ void listarstatus(){
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
-        printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+        printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
         printf("Descrição: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
@@ -265,7 +274,7 @@ void listarstatus(){
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
-        printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+        printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
         printf("Descrição: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
@@ -298,7 +307,7 @@ void listarstatus(){
         printf("Título: %s\n", projeto[i].titulo);
         printf("Gerente: %s\n", projeto[i].gerente);
         printf("Cliente: %s\n", projeto[i].cliente);
-        printf("Estimativa do prazo: %d meses\n", projeto[codigototal].estimativa);
+        printf("Estimativa: %d meses\n", projeto[codigototal].estimativa);
         printf("Ano: %d\n", projeto[i].ano);
         printf("Descrição: %s\n", projeto[i].descricao);
         printf("Valor: R$ %.2f\n", projeto[i].valor);
@@ -323,12 +332,22 @@ void listarstatus(){
 // CORPO PROGRAMA 
 int main(void){  
     setlocale(LC_ALL, "Portuguese");
-    codigototal = 0;
+    codigototal = 1;
+    
+	
+
+	projeto[1].estimativa = 1;
+	projeto[1].cliente = "%s" luiz;
+	
+    	
+    
     do {
+   	
         printf("\n**********************************************");
         printf("\n          Hub de Projetos - JURAZEK");
         printf("\n**********************************************");
-        printf("\n                   MENU");
+        printf("\n                   MENU\n");
+        
         printf("\n 1 - Cadastrar um novo projeto ");
         printf("\n 2 - Buscar por código");
         printf("\n 3 - Buscar por nome do cliente");
