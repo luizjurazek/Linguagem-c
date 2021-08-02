@@ -335,9 +335,11 @@ int main(void){
     setlocale(LC_ALL, "Portuguese");
     codigototal = 0;
     
+    printf("Aluno: Luiz Claudio Jurazek de Alvarenga\n");
+    printf("R.A: 21055068-5\n\n");
     do {
         printf("\n**********************************************");
-        printf("\n          Hub de Projetos - JURAZEK");
+        printf("\n          Hub de Projetos - DEV. JURAZEK");
         printf("\n**********************************************");
         printf("\n                   MENU\n");
         printf("\n 1 - Cadastrar um novo projeto ");
@@ -346,6 +348,7 @@ int main(void){
         printf("\n 4 - Listar projetos cadastrados");
         printf("\n 5 - Listar projetos por status");
         printf("\n 6 - Sair");
+        printf("\n                                        V1.0.0");
 
         printf("\n");
         printf("\n");
