@@ -1,5 +1,5 @@
-# LinguagemC
-O projeto LinguagemC contém arquivos que são estudos de estrutura de dados em linguagem C. Esses arquivos foram desenvolvidos para fins educacionais.
+# Estrutura de dados
+O projeto Estrutura de dados contém arquivos que são estudos de estrutura de dados em linguagem C. Esses arquivos foram desenvolvidos para fins educacionais.
 
 Os arquivos contêm implementações de diferentes estruturas de dados, como pilha, fila, lista encadeada e árvore binária. Cada arquivo é nomeado de acordo com a estrutura de dados que é implementada nele.
 
